@@ -1,83 +1,93 @@
-# Ruby on Rails Course
+![Microverse](https://img.shields.io/badge/-Microverse-%20%236f23ff?style=for-the-badge)
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white) ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 
-## Set-up GitHub Actions
+# Blog 🗒️💡✏️❤️
 
-This GitHub Action is going to run [Rubocop](https://docs.rubocop.org/en/stable/) and [Stylelint](https://stylelint.io/) to help you find style issues.
+> This repo holds a simple blog website app built with ROR. The website shows the list of posts and empowers readers to interact with them by adding comments and liking posts.
 
-[Stylelint](https://stylelint.io/) is a linter for your stylesheets that helps you avoid errors and enforce conventions.
+## Database ERD Diagram :memo:
 
-[Rubocop](https://docs.rubocop.org/en/stable/) is a Ruby static code analyzer (a.k.a. linter) and code formatter. It will enforce many of the guidelines outlined in the community [Ruby Style Guide](https://rubystyle.guide/).
+![](./blog_app_erd.png)
 
-Please do the following **steps in this order**:
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
+## Built With :hammer_and_wrench:
 
-![gh actions checks](../assets/images/gh-actions-rubocop-stylelint-checks.png)
+- **Ruby** Popular programming language that’s used for lots of things, from web app development to data analysis.
+- **GitHub flow:**  Correct use of Branches for deployment and features development.
+- **Linters Check (Rubocop & Stylelint):** Local and Pull Request check for errors, bugs and stylistic errors in code.
+- **PostgreSQL:** A powerful, open source object-relational database system.
+- **Rails:** A web application development framework written in the Ruby programming language. This app currently implements version 7.0.4
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
 
-![gh actions failing checks](../assets/images/gh-actions-rubocop-failing-checks.png)
+## Getting Started ➡️
 
-## Set-up linters in your local env
+To get a local copy up and running follow these simple steps.:arrow_down:
 
-**Note**: The `npm` package manager is going to create a `node_modules` directory to install all of your dependencies. You shouldn't commit that directory. To avoid that, you can create a [`.gitignore`](https://git-scm.com/docs/gitignore) file and add `node_modules` to it:
+- Check the Ruby version or if you have at all by running `ruby -v` if it returns  `ruby 3.1.2p20 (2022-04-12 revision 4491bb740a)` or similar, you have Ruby installed.
 
-```
-# .gitignore
-node_modules/
-```
+* Ruby version used `ruby 3.1.2`
 
-### Rubocop
+### Setup 🛠️
 
-1. Add this line to the `Gemfile`
-    ```
-    gem 'rubocop', '>= 1.0', '< 2.0'
-    ```
-    *not sure how to use Gemfile? Read [this](https://bundler.io/v1.15/guides/bundler_setup.html)*.
-2. Run `bundle install`.
-3. Copy [.rubocop.yml](./.rubocop.yml) to the root directory of your project
-4. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-5. Run `rubocop`.
-6. Fix linter errors.
-7. **IMPORTANT NOTE**: feel free to research [auto-correct options for Rubocop](https://rubocop.readthedocs.io/en/latest/auto_correct/) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+- Clone the repository using the GitHub this link [🔗](https://github.com/hannziegel/blog.git)
+- `cd blog`
+- Run `bundle install`
+- Run `rails server`
+- Open Browser `http://localhost:3000/`
+- Ensure you have PostgreSQL installed before running the application`psql --version`.
+- Run `rails db:create`.
+- Create a [.envs](https://medium.com/geekculture/postgresql-rails-and-macos-16248ddcc8ba) file using the link to host postgres credentials.
 
-### Stylelint
+### Testing
 
-1. Run
+To run tests:
+ - Ensure you have `RSpec` installed: running bundle install will install it since it is included in the `Gemfile`.
+ - To run a specific test:
+ - Run `rspec spec/models<name_of_spec_file>`
+ - To run all tests:
+ - Run `rspec spec`
 
-   ```
-   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-   ```
+## Authors :writing_hand:
 
-   *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
+:woman_technologist:  **Rodrigo Johann Reckziegel Nunes** :writing_hand:
 
-2. Copy [.stylelintrc.json](./.stylelintrc.json) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your tem - which is a group of all Microverse students.**
-   - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Stylelint](https://stylelint.io/user-guide/cli#autofixing-errors) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+- GitHub: [@Hannziegel](https://github.com/Hannziegel)
+- LinkedIn: [Rodrigo Johann Reckziegel Nunes](https://www.linkedin.com/in/rodrigojrnunes/)
 
-## RSpec/Heroku Actions
 
-Feel free to add your own deployment actions which can run your tests and deploy to Heroku.
+## Project Milestones 📌
 
-Make sure that you do not modify the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) but that you create a separe GitHub Action workflow file for that.
+- Milestone 1: Creating a data model. ⚙️
+- Milestone 2: Validations and Model specs. ⚙️
+- Milestone 3: Processing data in models.	⚙️
+- Milestone 4: Setup and controllers. ⚙️
+- Milestone 5: Controllers specs. ⚙️
+- Milestone 6: Views. ⚙️
+- Milestone 7: Forms. ⚙️
+- Milestone 8: Integration specs for Views and fixing n+1 problems. ⚙️
+- Milestone 9: Add Devise. ⚙️
+- Milestone 10: Add authorization rules. ⚙️
+- Milestone 11: Add API endpoints. ⚙️
+- Exercise: API documentation. ⚙️
 
-- [GitHub Actions with Ruby on Rails: Setting up Continuous Integration](https://gorails.com/episodes/github-actions-continuous-integration-ruby-on-rails)
-- [Deploying to Heroku from GitHub Actions](https://dev.to/heroku/deploying-to-heroku-from-github-actions-29ej)
-- [Building a Rails CI pipeline with GitHub Actions](https://boringrails.com/articles/building-a-rails-ci-pipeline-with-github-actions/)
-- [Github Actions to run Rubocop and RSpec tests on Rails with Postgres](https://dev.to/abdellani/github-actions-to-run-rubocop-and-rspec-tests-on-rails-with-postgres-47i)
+## 🤝 Contributing
 
-## Troubleshooting
+Contributions, issues, and feature requests are welcome!
 
-- If you are building an API only Rails application
-For API only Rails application you can remove the Stylelint config. To do so remove line no. [23](https://github.com/microverseinc/linters-config/blob/f0c812753d0418288c404ed4a441a2e7370e9f4e/ror/.github/workflows/linters.yml#L23) to [36](https://github.com/microverseinc/linters-config/blob/f0c812753d0418288c404ed4a441a2e7370e9f4e/ror/.github/workflows/linters.yml#L36) from the [linter.yml]((https://github.com/microverseinc/linters-config/blob/master/ror/.github/workflows/linters.yml)) file.
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Microverse staff
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
