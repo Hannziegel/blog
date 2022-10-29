@@ -41,6 +41,9 @@ gem 'tzinfo-data'
 
 gem 'dotenv-rails'
 
+# Rspec-rails
+gem 'rspec-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
