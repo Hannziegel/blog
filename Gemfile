@@ -47,6 +47,9 @@ gem 'rspec-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# error: FFI is a required pre-requisite for Windows or posix_spawn support in the ChildProcess gem
+gem 'ffi'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -73,5 +76,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'webdrivers'
 end
