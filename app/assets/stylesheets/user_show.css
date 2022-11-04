@@ -1,0 +1,28 @@
+.bio-container {
+  margin: 3vh 0;
+  padding: 10px;
+  background-color: rgba(153, 153, 153, 0.644);
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.post-container {
+  background-color: rgba(153, 153, 153, 0.644);
+  padding: 10px;
+}
+
+.counters-container {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.posts-button {
+  margin-top: 3vh;
+}

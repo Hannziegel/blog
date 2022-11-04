@@ -1,0 +1,31 @@
+.user-container {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(153, 153, 153, 0.644);
+  margin-top: 3vh;
+}
+
+.user-image img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-name {
+  color: red;
+}
+
+.post-counter {
+  color: blueviolet;
+  align-self: flex-end;
+}

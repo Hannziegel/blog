@@ -1,2 +1,27 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+  <div class="user-container">
+    <div class="user-image"> <%= image_tag @user.photo %> </div>
+    <div class="user-info">
+      <h2 class="user-name"> <%= @user.name %> </h2>
+      <span class="post-counter"> Post Counter: <%= @user.posts_counter %> </span>
+    </div>
+  </div>
+
+  <% @user.posts.each do |post| %>
+    <%= link_to user_post_path(@user, post) do %>
+      <div class="post-container">
+        <div class="post-title"> <%= post.title %> </div>
+        <p><%= post.text %></p>
+        <div class="counters-container">
+          <span>Comments: <%= post.comments_counter %> </span>
+          <span>Likes: <%= post.likes_counter %> </span>
+        </div>
+      </div>
+      <%post.last_5_comments.each do |comment|%>
+        <div>
+          <span> <%= comment.author.name %></span> : <span> <%= comment.text %> </span>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
