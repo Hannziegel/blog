@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates :posts_counter, numericality: { greater_than_or_equal: 0 }
 
   def last_three_posts
-    post.last(3)
+    posts.last(3)
   end
 end
