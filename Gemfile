@@ -44,6 +44,8 @@ gem 'dotenv-rails'
 # Rspec-rails
 gem 'rspec-rails'
 
+gem 'pg', '~> 1.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 

@@ -27,4 +27,8 @@
   <%= link_to user_posts_path(@user) do %>
      <button class="posts-button" type="button"> See all Posts </button>
   <% end %>
+
+  <%= link_to new_user_post_path(@user) do %>
+    <button class="posts-button"> Create new Post </button>
+  <% end %>
 </div>

@@ -12,5 +12,9 @@
         <span> <%= comment.author.name %></span> : <span> <%= comment.text %> </span>
       </div>
     <% end %>
+    <%= render "comments/comment" %>
+    <div class="likes">
+      <%= render "likes/like" %>
+    </div>
   </div>
 </div>
