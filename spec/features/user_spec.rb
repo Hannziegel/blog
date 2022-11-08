@@ -14,13 +14,68 @@ RSpec.feature "Users", type: :feature do
     end
     end
 
-    it "to show all usernames" do
-      visit '/'
-      expect(page).to have_content(@user_one.name)
+    describe "user/index" do
+      before(:each) do
+        visit '/'
+      end
+
+      it "to show all usernames" do
+        expect(page).to have_content(@user_one.name)
+      end
+
+      it "nubers of post tha each user has written" do
+        expect(page).to have_content(@user_one.posts_counter)
+      end
+
+      it "show profile picture" do
+        expect(page).to have_tag('img', :src => "#{@user_one.photo}")
+      end
+
+      it "When click on a user, go to the user page" do
+        click_on(@user_one.name)
+        expect(current_path).to eql(user_path(@user_one.id))
+      end
     end
 
-    it "nubers of post tha each user has written" do
-      visit '/'
-      expect(page).to have_content(@user_one.posts_counter)
+    describe "user/show" do
+      before(:each) do
+        visit "/users/#{@user_one.id}"
+      end
+
+      it "I can see the user's profile picture" do
+        expect(page).to have_tag('img', :src => "#{@user_one.photo}")
+      end
+
+      it "I can see the user's username." do
+        expect(page).to have_content(@user_one.name)
+      end
+
+      it "I can see the number of posts the user has written." do
+        expect(page).to have_content(@user_one.posts_counter)
+      end
+
+      it "I can see the user's bio." do
+        expect(page).to have_content(@user_one.bio)
+      end
+
+      it "I can see the user's first 3 posts." do
+        expect(page).to have_content(@user_one.last_three_posts[0].text)
+        expect(page).to have_content(@user_one.last_three_posts[1].text)
+        expect(page).to have_content(@user_one.last_three_posts[2].text)
+      end
+
+      it "I can see a button that lets me view all of a user's posts." do
+        expect(page).to have_content("See all Posts")
+      end
+
+      it "When I click a user's post, it redirects me to that post's show page." do
+        click_link(@user_one.last_three_posts[0].id)
+        expect(page).to have_current_path(user_post_path(@user_one, @user_one.last_three_posts[0].id))
+      end0
+
+      it "When I click to see all posts, it redirects me to the user's post's index page." do
+        click_on("see-all-posts")
+        expect(page).to have_tag('a', :href => user_posts_path(@user_one))
+      end
     end
 end
