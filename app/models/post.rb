@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { greater_than_or_equal: 0 }
 
   def last_5_comments
-    comments.order(created_at: :desc).limit(5)
+    comments.includes([:author]).order(created_at: :desc).limit(5)
   end
 
   private

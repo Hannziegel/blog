@@ -7,7 +7,7 @@
       </div>
     <p><%= @post.text %></p>
     </div>
-    <% @post.comments.each do |comment|%>
+    <% @post.comments.includes([:author]).each do |comment|%>
       <div>
         <span> <%= comment.author.name %></span> : <span> <%= comment.text %> </span>
       </div>
