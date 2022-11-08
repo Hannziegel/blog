@@ -15,7 +15,12 @@ RSpec.feature "Users", type: :feature do
     end
 
     it "to show all usernames" do
-    visit '/'
-    expect(page).to have_content(@user_one.name)
+      visit '/'
+      expect(page).to have_content(@user_one.name)
+    end
+
+    it "nubers of post tha each user has written" do
+      visit '/'
+      expect(page).to have_content(@user_one.posts_counter)
     end
 end
