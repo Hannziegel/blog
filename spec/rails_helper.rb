@@ -33,7 +33,7 @@ end
 # Microverse tutorial
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
- end
+end
 
 Capybara.javascript_driver = :selenium_chrome
 
@@ -66,25 +66,25 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
-    # Following microverse guide
-    config.before(:suite) do
-      DatabaseCleaner.clean_with(:truncation)
-    end
-    config.before(:each) do
-      DatabaseCleaner.strategy = :transaction
-    end
-    config.before(:each, js: true) do
-      DatabaseCleaner.strategy = :truncation
-    end
+  # Following microverse guide
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
 
-    # This block must be here, do not combine with the other `before(:each)` block.
-    # This makes it so Capybara can see the database.
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
+  # This block must be here, do not combine with the other `before(:each)` block.
+  # This makes it so Capybara can see the database.
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")

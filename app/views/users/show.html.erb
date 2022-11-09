@@ -15,7 +15,7 @@
   <div class="posts-container">
     <% @user.last_three_posts.each do |post| %>
       <%= link_to user_posts_path(@user, post.id)  do %>
-        <div class="post-container" id="#{post.id}">
+        <div class="post-container" id=<%=post.id%>>
           <div class="post-title"> <%= post.title %> </div>
           <p><%= post.text %> </p>
           <div class="counters-container">
