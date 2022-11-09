@@ -50,7 +50,7 @@ RSpec.feature 'Posts', type: :feature do
     end
 
     it 'I can see a section for pagination if there are more posts than fit on the view.' do
-      expect(page).to have_tag('button')
+      expect(page).to have_tag('a')
     end
 
     it "When I click on a post, it redirects me to that post's show page." do
