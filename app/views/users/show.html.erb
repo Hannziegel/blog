@@ -14,18 +14,20 @@
 
   <div class="posts-container">
     <% @user.last_three_posts.each do |post| %>
-      <div class="post-container">
-        <div class="post-title"> <%= post.title %> </div>
-        <p><%= post.text %> </p>
-        <div class="counters-container">
-          <span>Comments: <%= post.comments_counter %> </span>
-          <span>Likes: <%= post.likes_counter %> </span>
+      <%= link_to user_posts_path(@user, post.id)  do %>
+        <div class="post-container" id=<%=post.id%>>
+          <div class="post-title"> <%= post.title %> </div>
+          <p><%= post.text %> </p>
+          <div class="counters-container">
+            <span>Comments: <%= post.comments_counter %> </span>
+            <span>Likes: <%= post.likes_counter %> </span>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <%= link_to user_posts_path(@user) do %>
-     <button class="posts-button" type="button"> See all Posts </button>
+     <button class="posts-button" type="button" id="see-all-posts"> See all Posts </button>
   <% end %>
 
   <%= link_to new_user_post_path(@user) do %>

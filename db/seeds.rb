@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-first_user = User.find_by(name: 'Tom')
-second_user = User.find_by(name: 'Lilly')
+first_user = User.create(name: 'Tom', photo: 'https://picsum.photos/200', bio: 'Teacher from England.')
+second_user = User.create(name: 'Lilly', photo: 'https://picsum.photos/200', bio: 'Teacher from Poland.')
 
 4.times do
     Post.create do |post|
