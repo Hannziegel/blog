@@ -49,6 +49,9 @@ gem 'rspec-rails'
 
 gem 'pg', '~> 1.1'
 
+# For authentication
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
@@ -66,6 +69,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
+  gem 'letter_opener'
 end
 
 group :development do
