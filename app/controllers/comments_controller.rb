@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    # @comments = @user.
     @comment = Comment.new
   end
 
@@ -17,6 +18,14 @@ class CommentsController < ApplicationController
       redirect_to user_post_path(@user, @post)
     else
       render :new
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id]).destroy
+    @post = Post.find_by(id: params[:post_id])
+    respond_to do |format|
+      format.html { redirect_back_or_to user_posts_path(current_user), notice: 'Deleted!' }
     end
   end
 

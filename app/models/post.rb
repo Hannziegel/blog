@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   after_create :increase_counter
 
   validates :title, presence: true, length: { maximum: 250, too_long: 'Title must not exceed 250 characters' }
@@ -16,5 +16,9 @@ class Post < ApplicationRecord
 
   def increase_counter
     author.increment!(:posts_counter)
+  end
+
+  def decrease_counter
+    author.decrement!(:posts_counter)
   end
 end

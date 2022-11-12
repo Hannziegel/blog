@@ -22,6 +22,11 @@
           <span> <%= comment.author.name %></span> : <span> <%= comment.text %> </span>
         </div>
       <% end %>
+      <% if can? :destroy, post %>
+      <%= form_with model: post, url: user_post_path(@user, post), method: :delete do |form| %>
+         <%= form.submit "Delete Post", class: "see" %>
+      <% end %>
+    <% end %>
     <% end %>
   <% end %>
 </div>

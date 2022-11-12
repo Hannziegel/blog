@@ -8,4 +8,8 @@ class Like < ApplicationRecord
   def increase_counter
     post.increment!(:likes_counter)
   end
+
+  def decrease_counter
+    author.decrement!(:likes_counter)
+  end
 end
