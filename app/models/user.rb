@@ -11,14 +11,14 @@ class User < ApplicationRecord
   validates :posts_counter, numericality: { greater_than_or_equal: 0 }
 
   def last_three_posts
-    posts.includes([:comments, :likes]).last(3)
+    posts.includes(%i[comments likes]).last(3)
   end
 
   def admin?
-    self.role == 'admin'
+    role == 'admin'
   end
 
-  #def present?
+  # def present?
   #  self.role == 'default'
-  #end
+  # end
 end
