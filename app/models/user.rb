@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :posts_counter, numericality: { greater_than_or_equal: 0 }
 
   def last_three_posts
-    posts.last(3)
+    posts.includes([:comments, :likes]).last(3)
   end
 
   def admin?
