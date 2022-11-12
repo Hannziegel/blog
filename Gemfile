@@ -52,6 +52,9 @@ gem 'pg', '~> 1.1'
 # For authentication
 gem 'devise'
 
+# For Authorization
+gem 'cancancan'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
